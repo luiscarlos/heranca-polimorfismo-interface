@@ -1,60 +1,59 @@
 package cadastro_pessoa;
 
-public class Aluno{
+import java.util.ArrayList;
+import java.util.List;
 
-	
-	private String nome;
-	private int idade;
-	private String dataNascimento;
-	private String rg;
-	private String cpf;
-	private String nomeMae;
-	private String nomePai;
-	
-	
-	
-	public String getNome() {
-		return nome;
+import cadastro_pessoa_contante.StatusAluno;
+
+public class Aluno extends Pessoa {
+	private int matricula;
+	private String curso;
+
+	private List<Disciplina> disciplina = new ArrayList<Disciplina>();
+
+	public int getMatricula() {
+		return matricula;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+
+	public void setMatricula(int matricula) {
+		this.matricula = matricula;
 	}
-	public int getIdade() {
-		return idade;
+
+	public String getCurso() {
+		return curso;
 	}
-	public void setIdade(int idade) {
-		this.idade = idade;
+
+	public void setCurso(String curso) {
+		this.curso = curso;
 	}
-	public String getDataNascimento() {
-		return dataNascimento;
+
+	public List<Disciplina> getDisciplina() {
+		return disciplina;
 	}
-	public void setDataNascimento(String dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
-	public String getRg() {
-		return rg;
-	}
-	public void setRg(String rg) {
-		this.rg = rg;
-	}
-	public String getCpf() {
-		return cpf;
-	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-	public String getNomeMae() {
-		return nomeMae;
-	}
-	public void setNomeMae(String nomeMae) {
-		this.nomeMae = nomeMae;
-	}
-	public String getNomePai() {
-		return nomePai;
-	}
-	public void setNomePai(String nomePai) {
-		this.nomePai = nomePai;
+
+	public void setDisciplina(List<Disciplina> disciplina) {
+		this.disciplina = disciplina;
 	}
 	
+	public double getMedia() {
+		double media = 0.0;
+		for (Disciplina disciplina2 : disciplina) {
+			media = media + disciplina2.getNota();
+		}
+		return media / disciplina.size();
+	}
 	
+	public String getAprovado() {
+		if(getMedia() >= 51) {
+			if(getMedia() >70) {
+				return StatusAluno.APROVADO;
+			}else{
+				return StatusAluno.RECUPERACAO;
+			}
+		}
+			return StatusAluno.REPROVADO;
+		
+		
+	}
+
 }
