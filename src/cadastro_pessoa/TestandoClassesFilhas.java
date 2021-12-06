@@ -9,7 +9,7 @@ public class TestandoClassesFilhas {
 		Aluno aluno = new Aluno();
 		Professor professor = new Professor();
 		Funcionario funcionario = new Funcionario();
-		for(int qtd = 0; qtd <2; qtd++ ) {
+		for(int qtd = 0; qtd <1; qtd++ ) {
 			
 			String nomeAlno = JOptionPane.showInputDialog("Digite o nome do aluno");	
 			String idadeAlno = JOptionPane.showInputDialog("Digite o idade do aluno");	
@@ -48,6 +48,12 @@ public class TestandoClassesFilhas {
 		System.out.println(funcionario);
 		System.out.println("------------------");
 		System.out.println(professor);
+		System.out.println("------------------");
+		System.out.println("Maior idade " + aluno.pessoaMaiorIdade() + " - " + aluno.msMaiorIdade());
+		System.out.println("------------------");
+		System.out.println("Maior idade " +  professor.pessoaMaiorIdade());
+		System.out.println("------------------");
+		System.out.println("Maior idade " +  funcionario.pessoaMaiorIdade());
 		
 	}
 

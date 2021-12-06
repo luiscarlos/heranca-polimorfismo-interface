@@ -55,5 +55,13 @@ public class Aluno extends Pessoa {
 		
 		
 	}
-
+	
+	@Override // identifica metodo sobrescrito
+	public boolean pessoaMaiorIdade() {	
+		return idade >= 21; 
+	}
+	
+	public String msMaiorIdade() {
+		return this.pessoaMaiorIdade()?"parabens aluno maior idade":"Infelizmente aluno não é de maior";
+	}
 }
