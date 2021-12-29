@@ -1,4 +1,4 @@
-package cadastro_pessoa;
+package cadastro.pessoa;
 
 public class Disciplina {
 	private String nome;

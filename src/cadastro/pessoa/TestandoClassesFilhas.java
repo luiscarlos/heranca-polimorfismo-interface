@@ -1,6 +1,9 @@
-package cadastro_pessoa;
+package cadastro.pessoa;
 
 import javax.swing.JOptionPane;
+
+import cadastro.classesauxiliares.FuncaoAutenticacao;
+import cadastro.pessoa.interfaces.PermitirAcesso;
 
 public class TestandoClassesFilhas {
 
@@ -8,7 +11,21 @@ public class TestandoClassesFilhas {
 		// TODO Auto-generated method stub
 		Aluno aluno = new Aluno();
 		Professor professor = new Professor();
-		Funcionario funcionario = new Funcionario();
+		
+		String login = JOptionPane.showInputDialog("Digite seu login");
+		String senha = JOptionPane.showInputDialog("Digite seu login");
+		
+		
+		//PermitirAcesso funcionario = new Funcionario();
+		//FuncaoAutenticacao funcaoAutenticacao = new FuncaoAutenticacao();
+		PermitirAcesso permitirAcesso = new Funcionario(login, senha);
+	
+		
+		//if(permitirAcesso.Autenticar()) {
+		
+		//if(funcaoAutenticacao.auteticarEntrada(permitirAcesso)) {
+		if(new FuncaoAutenticacao(permitirAcesso).autenticar()) {
+		
 		for(int qtd = 0; qtd <1; qtd++ ) {
 			
 			String nomeAlno = JOptionPane.showInputDialog("Digite o nome do aluno");	
@@ -35,9 +52,9 @@ public class TestandoClassesFilhas {
 			String estaTrabalhandoFuncionario = JOptionPane.showInputDialog("Funcionario esta trabalhando 1-SIM, 2- N~]AO");
 			String idadeFuncionario = JOptionPane.showInputDialog("Digite o idade do funcionario");
 			
-			funcionario.setNome(nomeFunconario);
+			/*funcionario.setNome(nomeFunconario);
 			funcionario.setEstaTrabalhando(Boolean.valueOf(estaTrabalhandoFuncionario));
-			funcionario.setIdade(Integer.valueOf(idadeFuncionario));
+			funcionario.setIdade(Integer.valueOf(idadeFuncionario));*/
 			
 		}
 		
@@ -45,16 +62,33 @@ public class TestandoClassesFilhas {
 	
 		System.out.println(aluno.toString());
 		System.out.println("------------------");
-		System.out.println(funcionario);
+		//System.out.println(funcionario);
 		System.out.println("------------------");
 		System.out.println(professor);
 		System.out.println("------------------");
 		System.out.println("Maior idade " + aluno.pessoaMaiorIdade() + " - " + aluno.msMaiorIdade());
+		System.out.println("Maior idade " + aluno.salario());
 		System.out.println("------------------");
 		System.out.println("Maior idade " +  professor.pessoaMaiorIdade());
+		System.out.println("Maior idade " +  professor.salario());
 		System.out.println("------------------");
-		System.out.println("Maior idade " +  funcionario.pessoaMaiorIdade());
+		/*System.out.println("Maior idade " +  funcionario.pessoaMaiorIdade());
+		System.out.println("Maior idade " +  funcionario.salario());*/
 		
+		
+		//Pessoa pessoa = new Aluno();
+	
+		teste(aluno);
+		teste(professor);
+		//teste(funcionario);
+		}else {
+			JOptionPane.showMessageDialog(null, "acesso negado");
+		}
 	}
-
+	
+	
+	public static void teste(Pessoa pessoa) {
+		System.out.println("Essa pessoa e d + :" + pessoa.getNome() + " e o salario e:" + pessoa.salario());
+	}
+	
 }

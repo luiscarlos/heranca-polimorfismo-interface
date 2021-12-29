@@ -1,10 +1,13 @@
-package cadastro_pessoa;
+package cadastro.pessoa;
 
-public class Pessoa {
+public abstract class Pessoa {
 
 	protected String nome;
 	protected int idade;
 	protected String sexo;
+	
+	
+	public abstract double salario();
 
 	public void fazerAniversario() {
 		this.idade++;

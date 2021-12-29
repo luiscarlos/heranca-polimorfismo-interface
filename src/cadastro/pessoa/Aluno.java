@@ -1,4 +1,4 @@
-package cadastro_pessoa;
+package cadastro.pessoa;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +56,12 @@ public class Aluno extends Pessoa {
 		
 	}
 	
+	@Override
+	public String toString() {
+		return "Aluno [matricula=" + matricula + ", curso=" + curso + ", disciplina=" + disciplina + ", nome=" + nome
+				+ ", idade=" + idade + ", sexo=" + sexo + "]";
+	}
+
 	@Override // identifica metodo sobrescrito
 	public boolean pessoaMaiorIdade() {	
 		return idade >= 21; 
@@ -63,5 +69,11 @@ public class Aluno extends Pessoa {
 	
 	public String msMaiorIdade() {
 		return this.pessoaMaiorIdade()?"parabens aluno maior idade":"Infelizmente aluno não é de maior";
+	}
+
+	@Override
+	public double salario() {
+		// TODO Auto-generated method stub
+		return 1500.90;
 	}
 }
